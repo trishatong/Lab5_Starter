@@ -17,14 +17,7 @@ const confetti = new JSConfetti()
 
 // Set the image and the corresponding sound to the horn that is selected
 function hornChange() {
-    // var img = document.querySelector('img');
-    // var audio = document.querySelector('audio');    
-    // horn.addEventListener("change", (event) => {
-    //         img.src = "assets/images/" + event.target.value + ".svg";
-    //         audio.src = "assets/audio/" + event.target.value + ".mp3";
-    // });
-
-    const hornSelect = document.getElementById('horn-select').addEventListener('change', (event)=> {
+       const hornSelect = document.getElementById('horn-select').addEventListener('change', (event)=> {
         document.getElementsByTagName('img')[0].src = 'assets/images/' + event.target.value + '.svg';
         document.getElementsByTagName('audio')[0].src = 'assets/audio/' + event.target.value + '.mp3';
    });
@@ -33,7 +26,7 @@ function hornChange() {
 // 'Play Sound' button function: play sound when click on the button, and shoot out confetti animation if the Party Horn is selected 
 function playButton() {
   const selectedAudio = document.getElementsByClassName('hidden')[0];
-  const play = document.querySelector('button').addEventListener('click', e => {
+  const play = document.querySelector('button').addEventListener('click', () => {
     selectedAudio.play();
     if(document.getElementById('horn-select').value == 'party-horn'){
         confetti.addConfetti({
@@ -49,7 +42,7 @@ function playButton() {
 function volumeChange() {
     const volumeSlider = document.getElementById("volume");
     const audio = document.getElementsByTagName('audio')[0];
-    volumeSlider.addEventListener('change', image => {
+    volumeSlider.addEventListener('change', () => {
       const soundIcon = document.querySelector('#volume-controls>img');
       const volumeLevel = parseInt(volumeSlider.value);
   
