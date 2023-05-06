@@ -2,29 +2,23 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-function init() {
-  // TODO
-  // Select the horn
-  hornChange();
-  // Set up the 'Play Sound' button
-  playButton();
-  // Adjust the volume slider
-  volumeChange();
-} 
-
 //The confetti animation
 const confetti = new JSConfetti()
 
+function init() {
+  // TODO
+  
 // Set the image and the corresponding sound to the horn that is selected
-function hornChange() {
+  const hornChange = () => {
        const hornSelect = document.getElementById('horn-select').addEventListener('change', (event)=> {
-        document.getElementsByTagName('img')[0].src = 'assets/images/' + event.target.value + '.svg';
-        document.getElementsByTagName('audio')[0].src = 'assets/audio/' + event.target.value + '.mp3';
+        document.querySelector('#expose>img').src = `assets/images/${event.target.value}.svg`;
+        document.getElementsByClassName('hidden')[0].src = `assets/audio/${event.target.value}.mp3`;
    });
 }
+  
 
 // 'Play Sound' button function: play sound when click on the button, and shoot out confetti animation if the Party Horn is selected 
-function playButton() {
+const playButton = () => {
   const selectedAudio = document.getElementsByClassName('hidden')[0];
   const play = document.querySelector('button').addEventListener('click', () => {
     selectedAudio.play();
@@ -39,7 +33,7 @@ function playButton() {
 
 
 // Turn up/down the volume level and the corresponding icon when the slider is adjusted
-function volumeChange() {
+ const volumeChange = () => {
     const volumeSlider = document.getElementById("volume");
     const audio = document.getElementsByTagName('audio')[0];
     volumeSlider.addEventListener('change', () => {
@@ -62,5 +56,14 @@ function volumeChange() {
       }
         audio.volume = volumeSlider.value / 100;
     });
-  }  
-
+  } 
+ 
+ // Call the functions inside init()
+ 
+ // Select the horn
+  hornChange();
+  // Set up the 'Play Sound' button
+  playButton();
+  // Adjust the volume slider
+  volumeChange();
+} 
