@@ -4,13 +4,13 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
     // image
     const horn = document.getElementById("horn-select");
+    const volume = document.getElementById("volume");
 }
-
-function hornChange() {
-    var img = document.querySelector('img');
-    var audio = document.querySelector('audio');    
-    horn.addEventListener("change", (event) => {
-            img.src = "assets/images/" + event.target.value + ".svg";
-            audio.src = "assets/audio/" + event.target.value + ".mp3";
-    });
-}
+    function hornChange() {
+        var img = document.querySelector('img');
+        var audio = document.querySelector('audio');    
+        horn.addEventListener("change", (event) => {
+                img.src = "assets/images/" + event.target.value + ".svg";
+                audio.src = "assets/audio/" + event.target.value + ".mp3";
+        });
+    }
