@@ -18,8 +18,8 @@ const confetti = new JSConfetti();
 // Set the image and the corresponding sound to the horn that is selected
 function hornChange() {
     const hornSelect = document.getElementById('horn-select').addEventListener('change', (event)=> {
-        document.getElementsByTagName('img')[0].src = 'assets/images/' + event.target.value + '.svg';
-        document.getElementsByTagName('audio')[0].src = 'assets/audio/' + event.target.value + '.mp3';
+        document.querySelector('#expose>img').src = `assets/images/${event.target.value}.svg`;
+        document.getElementsByClassName('hidden')[0].src = `assets/audio/${event.target.value}.mp3`;
    });
 }
 
@@ -40,7 +40,7 @@ function playButton() {
 // Turn up/down the volume level and the corresponding icon when the slider is adjusted
 function volumeChange() {
     const volumeSlider = document.getElementById("volume");
-    const audio = document.getElementsByTagName('audio')[0];
+    const audio = document.getElementsByClassName('hidden')[0];
     volumeSlider.addEventListener('change', () => {
       const soundIcon = document.querySelector('#volume-controls>img');
       const volumeLevel = parseInt(volumeSlider.value);
