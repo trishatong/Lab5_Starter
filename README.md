@@ -1,3 +1,2 @@
 # Lab 5 - Starter
-Trisha Tong
-Partner: Jason Bui
+Jason Bui and Trisha Tong
