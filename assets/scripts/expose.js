@@ -13,17 +13,10 @@ function init() {
 } 
 
 //The confetti animation
-const confetti = new JSConfetti()
+const confetti = new JSConfetti();
 
 // Set the image and the corresponding sound to the horn that is selected
 function hornChange() {
-    // var img = document.querySelector('img');
-    // var audio = document.querySelector('audio');    
-    // horn.addEventListener("change", (event) => {
-    //         img.src = "assets/images/" + event.target.value + ".svg";
-    //         audio.src = "assets/audio/" + event.target.value + ".mp3";
-    // });
-
     const hornSelect = document.getElementById('horn-select').addEventListener('change', (event)=> {
         document.getElementsByTagName('img')[0].src = 'assets/images/' + event.target.value + '.svg';
         document.getElementsByTagName('audio')[0].src = 'assets/audio/' + event.target.value + '.mp3';
@@ -43,7 +36,6 @@ function playButton() {
       }
     });
   }
-
 
 // Turn up/down the volume level and the corresponding icon when the slider is adjusted
 function volumeChange() {
@@ -70,4 +62,3 @@ function volumeChange() {
         audio.volume = volumeSlider.value / 100;
     });
   }  
-
