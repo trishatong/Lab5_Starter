@@ -26,7 +26,7 @@ function hornChange() {
 // 'Play Sound' button function: play sound when click on the button, and shoot out confetti animation if the Party Horn is selected 
 function playButton() {
   const selectedAudio = document.getElementsByClassName('hidden')[0];
-  const play = document.querySelector('button').addEventListener('click', e => {
+  const play = document.querySelector('button').addEventListener('click', () => {
     selectedAudio.play();
     if(document.getElementById('horn-select').value == 'party-horn'){
         confetti.addConfetti({
@@ -41,7 +41,7 @@ function playButton() {
 function volumeChange() {
     const volumeSlider = document.getElementById("volume");
     const audio = document.getElementsByTagName('audio')[0];
-    volumeSlider.addEventListener('change', image => {
+    volumeSlider.addEventListener('change', () => {
       const soundIcon = document.querySelector('#volume-controls>img');
       const volumeLevel = parseInt(volumeSlider.value);
   
