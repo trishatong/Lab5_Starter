@@ -1,7 +1,7 @@
 // explore.js
 
 window.addEventListener('DOMContentLoaded', init);
-
+var voices = [];
 function init() {
   // Populate voice dropdown
   populateVoiceList();
@@ -30,16 +30,17 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 }
 
 function talk() {
-  let button = document.querySelector("button");
-  let img = document.querySelector("img");
-  const text = document.getElementById("text-to-speak");
-  button.addEventListener("click", (event) => {
-    img.src = "assets/images/smiling-open.png";
-    let utterThis = new SpeechSynthesisUtterance(text.value);
-    utterThis.voice = voices[document.getElementById("voice-select").value];
-    window.speechSynthesis.speak(utterThis);
-    utterThis.addEventListener('end', (event) => {
-      img.src = "assets/images/smiling.png";
+    // Set up the talk button
+    const talkButton = document.querySelector("button");
+    talkButton.addEventListener("click", event => {
+      const textInput = document.getElementById("text-to-speak");
+      const faceImage = document.querySelector("img");
+      faceImage.src = "assets/images/smiling-open.png";
+      const utterance = new SpeechSynthesisUtterance(textInput.value);
+      utterance.voice = voices[document.getElementById("voice-select").value];
+      speechSynthesis.speak(utterance);
+      utterance.addEventListener("end", event => {
+        faceImage.src = "assets/images/smiling.png";
+      });
     });
-  });
 }
