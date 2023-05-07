@@ -3,7 +3,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  voices = window.speechSynthesis.getVoices();
   // Populate voice dropdown
   populateVoiceList();
   // Text is read aloud
@@ -11,6 +10,7 @@ function init() {
 }
 
 function populateVoiceList() {  
+  let voices = window.speechSynthesis.getVoices();
     for (let i = 0; i < voices.length; i++) { 
       const option = document.createElement("option");
       option.textContent = `${voices[i].name} (${voices[i].lang})`;
